@@ -1,4 +1,5 @@
 package com.aquariux.cryptotradesystem.service;
 
-public class WalletService {
+public interface WalletService {
+    boolean updateBalance(Long userId, double usdtChange, String symbol, double cryptoChange);
 }
