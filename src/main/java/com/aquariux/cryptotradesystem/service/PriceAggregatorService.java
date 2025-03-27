@@ -43,4 +43,8 @@ public class PriceAggregatorService {
             }
         }
     }
+
+    public Optional<Price> getLatestPrice(String symbol) {
+        return priceRepository.findTopBySymbolOrderByUpdatedAtDesc(symbol);
+    }
 }
