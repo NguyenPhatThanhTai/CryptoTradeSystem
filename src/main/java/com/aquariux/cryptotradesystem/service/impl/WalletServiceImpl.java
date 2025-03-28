@@ -6,6 +6,8 @@ import com.aquariux.cryptotradesystem.service.WalletService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 @RequiredArgsConstructor
 public class WalletServiceImpl implements WalletService {
@@ -35,5 +37,11 @@ public class WalletServiceImpl implements WalletService {
 
         walletRepository.save(wallet);
         return true;
+    }
+
+    @Override
+    public Optional<Wallet> getWallet(Long userId) {
+        Wallet wallet = walletRepository.findById(userId).orElse(null);
+        return Optional.ofNullable(wallet);
     }
 }

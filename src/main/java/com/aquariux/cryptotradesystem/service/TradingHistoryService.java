@@ -1,4 +1,9 @@
 package com.aquariux.cryptotradesystem.service;
 
-public class TradingHistoryService {
+import com.aquariux.cryptotradesystem.model.TradingHistory;
+
+import java.util.List;
+
+public interface TradingHistoryService {
+    List<TradingHistory> getUserTrades(Long userId);
 }
