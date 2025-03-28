@@ -4,6 +4,7 @@ import com.aquariux.cryptotradesystem.client.HuobiClient;
 import com.aquariux.cryptotradesystem.dto.HuobiPriceResponses;
 import com.aquariux.cryptotradesystem.model.Price;
 import com.aquariux.cryptotradesystem.service.CryptoPriceService;
+import com.aquariux.cryptotradesystem.util.Constraint;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -23,8 +24,8 @@ public class HuobiPriceServiceImpl implements CryptoPriceService {
         try {
             HuobiPriceResponses wrapper = huobiClient.getAllTickers();
             return wrapper.getData().stream()
-                    .filter(p -> (symbol.equalsIgnoreCase("BTCUSDT") && p.getSymbol().equalsIgnoreCase("btcusdt"))
-                            || (symbol.equalsIgnoreCase("ETHUSDT") && p.getSymbol().equalsIgnoreCase("ethusdt")))
+                    .filter(p -> (Constraint.BTCUSDT.equalsIgnoreCase(symbol) && Constraint.BTCUSDT.equalsIgnoreCase( p.getSymbol()))
+                            || (Constraint.ETHUSDT.equalsIgnoreCase(symbol) && Constraint.ETHUSDT.equalsIgnoreCase(p.getSymbol())))
                     .findFirst()
                     .map(p -> Price.builder()
                             .symbol(symbol)

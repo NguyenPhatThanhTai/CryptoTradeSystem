@@ -3,6 +3,7 @@ package com.aquariux.cryptotradesystem.service.impl;
 import com.aquariux.cryptotradesystem.model.Wallet;
 import com.aquariux.cryptotradesystem.repository.WalletRepository;
 import com.aquariux.cryptotradesystem.service.WalletService;
+import com.aquariux.cryptotradesystem.util.Constraint;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -21,12 +22,12 @@ public class WalletServiceImpl implements WalletService {
         double newUsdt = wallet.getUsdtBalance() + usdtChange;
         double newCrypto;
 
-        if (symbol.equalsIgnoreCase("BTCUSDT")) {
+        if (Constraint.BTCUSDT.equalsIgnoreCase(symbol)) {
             newCrypto = wallet.getBtcBalance() + cryptoChange;
             if (newUsdt < 0 || newCrypto < 0) return false;
             wallet.setUsdtBalance(newUsdt);
             wallet.setBtcBalance(newCrypto);
-        } else if (symbol.equalsIgnoreCase("ETHUSDT")) {
+        } else if (Constraint.ETHUSDT.equalsIgnoreCase(symbol)) {
             newCrypto = wallet.getEthBalance() + cryptoChange;
             if (newUsdt < 0 || newCrypto < 0) return false;
             wallet.setUsdtBalance(newUsdt);

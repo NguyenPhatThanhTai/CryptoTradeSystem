@@ -7,6 +7,7 @@ import com.aquariux.cryptotradesystem.service.PriceAggregatorService;
 import com.aquariux.cryptotradesystem.service.TradeService;
 import com.aquariux.cryptotradesystem.service.TradingHistoryService;
 import com.aquariux.cryptotradesystem.service.WalletService;
+import com.aquariux.cryptotradesystem.util.Constraint;
 import com.aquariux.cryptotradesystem.util.TradeType;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -23,7 +24,7 @@ public class BitcoinTradeService implements TradeService {
 
     @Override
     public ApiResponse<?> executeTrade(TradeRequest request) {
-        return processTrade(request, "BTCUSDT");
+        return processTrade(request, Constraint.BTCUSDT);
     }
 
     private ApiResponse<?> processTrade(TradeRequest request, String symbol) {

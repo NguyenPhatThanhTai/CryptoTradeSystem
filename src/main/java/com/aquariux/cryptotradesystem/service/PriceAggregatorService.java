@@ -2,6 +2,7 @@ package com.aquariux.cryptotradesystem.service;
 
 import com.aquariux.cryptotradesystem.model.Price;
 import com.aquariux.cryptotradesystem.repository.PriceRepository;
+import com.aquariux.cryptotradesystem.util.Constraint;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -18,7 +19,7 @@ public class PriceAggregatorService {
     private final List<CryptoPriceService> priceServices;
     private final PriceRepository priceRepository;
 
-    private static final List<String> SUPPORTED_SYMBOLS = List.of("BTCUSDT", "ETHUSDT");
+    private static final List<String> SUPPORTED_SYMBOLS = List.of(Constraint.BTCUSDT, Constraint.ETHUSDT);
 
     @Scheduled(fixedRate = 10000)
     public void aggregatePrices() {
