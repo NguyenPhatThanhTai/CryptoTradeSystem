@@ -6,20 +6,20 @@ A simple **crypto trading system** built with **Spring Boot** and an **in-memory
 ## Structure
 
 src
-├── main
-│    ├── java
-│    │    └── com
-│    │         └── aquariux
-│    │             └── cryptotradesystem
-│    │                 ├── controller       # Controller classes (API endpoints)
-│    │                 ├── model            # Entity classes (e.g., Wallet, TradingHistory)
-│    │                 ├── repository       # JPA repositories
-│    │                 ├── service          # Business logic
-│    │                 └── dto              # Data transfer objects (e.g., WalletResponseDTO)
-│    └── resources
-│         ├── application.properties        # Application configuration
-│         └── data.sql                      # Initial data script for H2 database
-└── target                                  # Compiled classes (generated after build)
+ └── main
+     └── java
+         └── com
+             └── aquariux
+                 └── cryptotradesystem
+                     ├── controller       # Controller classes (API endpoints)
+                     ├── model            # Entity classes (e.g., Wallet, TradingHistory)
+                     ├── repository       # JPA repositories
+                     ├── service          # Business logic
+                     └── dto              # Data transfer objects (e.g., WalletResponseDTO)
+     └── resources
+         ├── application.properties  # Application configuration
+         └── data.sql               # Initial data script for H2 database
+ └── target                        # Compiled classes (generated after build)
 
 
 ## Technologies Used
